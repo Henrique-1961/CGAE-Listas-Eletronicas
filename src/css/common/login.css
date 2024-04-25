@@ -28,16 +28,12 @@ main {
     justify-self: center;
 }
 
-.mb {
-    margin-bottom: 27px;
-}
-
 .form-group {
-    max-width: 100%;
     width: 360px;
 }
 
-.align-right {
+.checkbox-group {
+    justify-self: end;
     width: auto;
 }
 
@@ -55,7 +51,7 @@ main {
         width: 90%;
     }
 
-    .card input:not([type="checkbox"]) {
-        width: calc(100% - 28px * 2 - 2px);
+    .form-group:not(.checkbox-group) {
+        width: 100%;
     }
 }

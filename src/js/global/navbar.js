@@ -19,7 +19,9 @@ window.addEventListener("resize", function() {
     }
 });
 
-function openNavbar() {
+function openNavbar(button) {
+    button.classList.toggle("change");
+
     const items = document.querySelector("div.nav-items-aux");
     const display = items.style.display == "block" ? "none" : "block";
 

@@ -105,19 +105,45 @@
 
 .btn-outline-navbar {
     display: none;
-    border: 2px solid var(--color-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-secondary);
     border-radius: 10px;
     width: 45px;
     height: 45px;
     transition: 0.2s;
     padding: 0;
     color: var(--color-secondary);
-    transform: rotate(90deg);
 }
 
 .btn-outline-navbar:hover {
     background-color: var(--color-secondary);
-    color: white;
+}
+
+.btn-outline-navbar .bar-1, .btn-outline-navbar .bar-2, .btn-outline-navbar .bar-3 {
+    width: 50%;
+    height: 2px;
+    margin: 2px 0;
+    background-color: var(--color-secondary);
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.btn-outline-navbar:hover > .bar-1, .btn-outline-navbar:hover > .bar-2, .btn-outline-navbar:hover > .bar-3 {
+    background-color: white;
+}
+
+.change .bar-1 {
+    transform: translateY(6px) rotate(-45deg);
+}
+
+.change .bar-2 {
+    opacity: 0;
+}
+
+.change .bar-3 {
+    transform: translateY(-6px) rotate(45deg);
 }
 
 @keyframes fade-in {
@@ -176,7 +202,7 @@
     }
 
     .btn-outline-navbar {
-        display: block;
+        display: flex;
     }
 }
 
