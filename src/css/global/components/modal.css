@@ -114,6 +114,12 @@
         display: block;
     }
 
+    .modal-footer a.btn {
+        display: block;
+        width: auto;
+        text-align: center;
+    }
+
     .modal-footer .btn {
         width: 100%;
         margin: 5px 0;
