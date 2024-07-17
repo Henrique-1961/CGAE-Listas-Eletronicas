@@ -11,5 +11,5 @@ function setCheckbox(id = undefined) {
                 checkbox.checked = !checkbox.checked;
             });
         }
-    } catch (error) { alert(error.message)}
+    } catch (error) { }
 }

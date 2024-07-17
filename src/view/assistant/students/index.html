@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGAE | Assistente | Alunos</title>
+    <link rel="stylesheet" href="../../../css/global/global.css">
+    <link rel="stylesheet" href="../../../css/assistant/students.css">
+    <script src="../../../js/global/navbar.js" defer></script>
+    <script src="../../../js/global/components/modal.js" defer></script>
+    <script src="../../../js/global/components/checkbox.js" defer></script>
+    <script src="../../../js/global/components/select.js" type="module"></script>
+    <script src="../../../js/global/components/select_initializer.js" type="module"></script>
+    <script src="../../../js/pages/assistant/students.js" defer></script>
+    <script src="../../../js/pages/student/signature.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="navbar">
+                <li class="nav-logo"><a class="nav-brand" href="#"><img src="../../../img/common/brand.svg" alt="CGAE brand"></a></li>
+                <div class="btn btn-outline-navbar" onclick="openNavbar(this)">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+                <div class="nav-items">
+                    <li>
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+        
+                    <li class="nav-link dropdown">
+                        <div class="dropdown-btn">
+                            Alunos <img src="../../../img/common/arrow-down.svg" alt="">
+                        </div>
+                        
+                        <div class="dropdown-content size-2">
+                            <a href="#">Ativos</a>
+                            <a href="#">Desativados</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-link dropdown">
+                        <div class="dropdown-btn">
+                            Assinaturas <img src="../../../img/common/arrow-down.svg" alt="">
+                        </div>
+                        
+                        <div class="dropdown-content size-2">
+                            <a href="#">Ativas</a>
+                            <a href="#">Encerradas</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-link dropdown">
+                        <div class="dropdown-btn">
+                            Perfil <img src="../../../img/common/arrow-down.svg" alt="">
+                        </div>
+                        
+                        <div class="dropdown-content size-2">
+                            <a href="#">Meu perfil</a>
+                            <a href="#" class="text-danger">Sair</a>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+            <div class="nav-items-aux">
+                <li>
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+        
+                <li>
+                    <a class="nav-link" href="#">Alunos</a>
+                </li>
+        
+                <li class="nav-link dropdown">
+                    <div class="dropdown-btn">
+                        Assinaturas <img src="../../../img/common/arrow-down.svg" alt="">
+                    </div>
+                    
+                    <div class="dropdown-content size-2">
+                        <a href="#">Ativas</a>
+                        <a href="#">Encerradas</a>
+                    </div>
+                </li>
+        
+                <li class="nav-link dropdown">
+                    <div class="dropdown-btn">
+                        Perfil <img src="../../../img/common/arrow-down.svg" alt="">
+                    </div>
+                    
+                    <div class="dropdown-content size-2">
+                        <a href="#">Meu perfil</a>
+                        <a href="#" class="text-danger">Sair</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+
+        <main>
+            <section id="content">
+                <h1 class="page-title">gerenciar alunos</h1>
+                <h2 class="page-subtitle">ativos</h2>
+
+                <div class="filter">
+                    <button class="btn btn-filter" onclick="openModal('filter')"><img src="./../../../img/icon/filter.svg" alt="*"></button>
+
+                    <div id="active-filters">
+                        <button class="btn btn-filter-active" onclick="">
+                            <span>Feminino</span>
+                            <img src="../../../img/icon/close.png" alt="&times;">
+                        </button>
+                        <button class="btn btn-filter-active" onclick="">
+                            <span>Quarto 1.4</span>
+                            <img src="../../../img/icon/close.png" alt="&times;">
+                        </button>
+                    </div>
+                </div>
+
+                <div id="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="table-link"><img src="./../../../img/icon/sort.svg" alt=""><span>n° refeitório</span></th>
+                                <th class="table-link"><img src="./../../../img/icon/sort.svg" alt=""><span>nome</span></th>
+                                <th>série</th>
+                                <th>internato</th>
+                                <th>quarto</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="table-link">
+                                <td>12</td>
+                                <td>henrique cardoso de souza</td>
+                                <td>3°</td>
+                                <td>masculino</td>
+                                <td>1-4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="options">
+                    <a href="#" class="btn btn-outline-success">Cadastrar novo aluno</a>
+                    <button type="button" class="btn btn-outline-primary" onclick="openModal('update')">Atualizar alunos</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="openModal('disable')">Desativar alunos</button>
+                </div>
+
+                <div class="pagination">
+                    <button class="btn-pagination previous" id="btn-previous" onclick="changePage(-1)"><img src="./../../../img/icon/arrow-left.svg" alt="&lsaquo;"></button>
+                    <button class="btn-pagination active" id="pagination-link">1</button>
+                    <button class="btn-pagination next" id="btn-next" onclick="changePage(1)"><img src="./../../../img/icon/arrow-right.svg" alt="&rsaquo;"></button>
+                </div>
+            </section>
+
+            <section id="modal">
+                <div id="filter-background" class="modal-background" style="display: none" onclick="openModal(this.id.split('-')[0])"></div>
+                <div id="filter" class="modal" style="display: none">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Filtrar</h3>
+                        <button type="button" class="btn btn-close-modal" onclick="openModal('filter')"><div class="close"></div></button>
+                    </div>
+
+                    <hr>
+
+                    <div class="modal-body">
+                        <div class="modal-content">
+                            <h4>série</h4>
+
+                            <ul class="px-4">
+                                <li>
+                                    <div class="form-group w-100 select-container">
+                                        <select name="serie" id="serie">
+                                            <option value="all">todas</option>
+                                            <option value="1">1°</option>
+                                            <option value="2">2°</option>
+                                            <option value="3">3°</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <h4>quarto</h4>
+
+                            <ul class="px-4">
+                                <li>
+                                    <div class="form-group w-100">
+                                        <div class="form-group w-100 select-container">
+                                            <select name="quarto" id="quarto">
+                                                <option value="">todos</option>
+                                                <option value="">1.1</option>
+                                                <option value="">1.2</option>
+                                                <option value="">1.3</option>
+                                                <option value="">1.4</option>
+                                                <option value="">1.5</option>
+                                                <option value="">2.1</option>
+                                                <option value="">2.2</option>
+                                                <option value="">2.3</option>
+                                                <option value="">2.4</option>
+                                                <option value="">3.1</option>
+                                                <option value="">3.2</option>
+                                                <option value="">3.3</option>
+                                                <option value="">3.4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <h4>internato</h4>
+
+                            <ul class="px-4">
+                                <li>
+                                    <div class="form-group w-100">
+                                        <div class="form-group w-100 select-container">
+                                            <select name="internato" id="internato">
+                                                <option value="all">todos</option>
+                                                <option value="f">feminino</option>
+                                                <option value="m">masculino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-danger" onclick="openModal('filter')">Cancelar</button>
+                        <button class="btn btn-outline-primary" onclick="cleanFilter()">Limpar Filtros</button>
+                        <button class="btn btn-outline-success" onclick="setFilter()">Filtrar</button>
+                    </div>
+                </div>
+
+                <div id="update-background" class="modal-background" style="display: none" onclick="openModal(this.id.split('-')[0])"></div>
+                <form action="?" method="post" id="update" class="modal" style="display: none">
+                    <div class="modal-header">
+                        <h3 class="modal-title">atualizar alunos</h3>
+                        <button type="button" class="btn btn-close-modal" onclick="openModal('update')"><div class="close"></div></button>
+                    </div>
+
+                    <hr>
+
+                    <div class="modal-body">
+                        <div class="modal-content">
+                            <h4>deseja realmente atualizar todos os alunos?</h4>
+                            <p>Isso irá incrementar a série de todos os alunos em 1 ano, e os alunos que estão na 3° série terão seus usuários desativados.</p>
+
+                            <br>
+                            <div class="form-group w-100">
+                                <input type="text" name="password" id="password" placeholder="Informe sua senha para confirmar">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" onclick="openModal('update')">Cancelar</button>
+                        <button type="submit" class="btn btn-outline-success" name="action" id="action" disabled>Atualizar</button>
+                    </div>
+                </form>
+
+                <div id="disable-background" class="modal-background" style="display: none" onclick="openModal(this.id.split('-')[0])"></div>
+                <form action="disable" method="post" id="disable" class="modal" style="display: none">
+                    <div class="modal-header">
+                        <h3 class="modal-title">desativar alunos</h3>
+                        <button type="button" class="btn btn-close-modal" onclick="openModal('disable')"><div class="close"></div></button>
+                    </div>
+
+                    <hr>
+
+                    <div class="modal-body">
+                        <div class="modal-content">
+                            <h3>selecione o critério de busca</h3>
+
+                            <br>
+
+                            <h4>série</h4>
+
+                            <ul class="px-4">
+                                <li>
+                                    <div class="form-group w-100 select-container">
+                                        <select name="serie" id="serie">
+                                            <option value="all">todas</option>
+                                            <option value="1">1°</option>
+                                            <option value="2">2°</option>
+                                            <option value="3">3°</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <h4>quarto</h4>
+
+                            <ul class="px-4">
+                                <li>
+                                    <div class="form-group w-100">
+                                        <div class="form-group w-100 select-container">
+                                            <select name="quarto" id="quarto">
+                                                <option value="">todos</option>
+                                                <option value="">1.1</option>
+                                                <option value="">1.2</option>
+                                                <option value="">1.3</option>
+                                                <option value="">1.4</option>
+                                                <option value="">1.5</option>
+                                                <option value="">2.1</option>
+                                                <option value="">2.2</option>
+                                                <option value="">2.3</option>
+                                                <option value="">2.4</option>
+                                                <option value="">3.1</option>
+                                                <option value="">3.2</option>
+                                                <option value="">3.3</option>
+                                                <option value="">3.4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <h4>internato</h4>
+
+                            <ul class="px-4">
+                                <li>
+                                    <div class="form-group w-100">
+                                        <div class="form-group w-100 select-container">
+                                            <select name="internato" id="internato">
+                                                <option value="all">todos</option>
+                                                <option value="f">feminino</option>
+                                                <option value="m">masculino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" onclick="openModal('disable')">Cancelar</button>
+                        <button type="submit" class="btn btn-outline-success" name="action" id="disabled-action">Buscar alunos</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <img class="footer-logo" src="/src/img/common/footer/logo.svg" alt="if logo">
+        
+            <div class="footer-line"></div>
+        
+            <div class="footer-contacts">
+                <a href="https://instagram.com/cgaelistaseletronicas" class="footer-contact">
+                    <img src="/src/img/common/footer/instagram.svg" alt="instagram">
+                    <span>cgaelistaseletronicas</span>
+                </a>
+                
+                <a href="mailto:cgaelistaseletronicas@gmail.com" class="footer-contact">
+                    <img src="/src/img/common/footer/email.svg" alt="email">
+                    <span>cgaelistaseletronicas@gmail.com</span>
+                </a>
+                
+                <div class="footer-contact">
+                    <img src="/src/img/common/footer/phone.svg" alt="telefone">
+                    <span>(38) 99187-8682</span>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            //const items = {{items}};
+        </script>
+    </div>
+</body>
+</html>

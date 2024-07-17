@@ -7,6 +7,15 @@
     font-family: var(--font-default);
     font-size: 13px;
     text-decoration: none;
+    display: grid;
+    place-items: center;
+}
+
+.btn:disabled, .btn:hover:disabled {
+    background-color: transparent;
+    color: var(--color-disabled) !important;
+    border-color: var(--color-disabled) !important;
+    cursor: default !important;
 }
 
 .btn-outline-success {
@@ -42,11 +51,14 @@
 .btn-filter {
     width: 45px;
     height: 45px;
+    min-width: 45px;
+    min-height: 45px;
     padding: 0;
     border-radius: 10px;
     border: 1px solid var(--color-success);
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-filter img {
@@ -65,10 +77,21 @@
     margin: 0 0 0 10px;
     border-radius: 10px;
     border: 1px solid var(--color-success);
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     place-items: center;
+    text-wrap: nowrap;
+    min-width: max-content;
 }
 
 .btn-filter-active:hover {
     background-color: var(--background-secondary);
+}
+
+.btn-filter-active img {
+    width: 8px;
+    height: 8px;
+    margin-left: 10px;
+    margin-top: 2px;
 }

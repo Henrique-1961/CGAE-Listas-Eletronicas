@@ -1,0 +1,22 @@
+#options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#options * {
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    #options {
+        display: block;
+    }
+
+    #options * {
+        margin: 10px 0;
+    }
+
+    #options *:not(a) {
+        width: 100%;
+    }
+}

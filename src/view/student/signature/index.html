@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGAE | Home</title>
+    <title>CGAE | Assinatura</title>
     <link rel="stylesheet" href="../../../css/global/global.css">
-    <link rel="stylesheet" href="../../../css/student/home.css">
+    <link rel="stylesheet" href="../../../css/student/profile.css">
     <script src="../../../js/global/navbar.js" defer></script>
+    <script src="../../../js/global/components/modal.js" defer></script>
+    <script src="../../../js/pages/student/signature.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -100,35 +102,114 @@
         </nav>
 
         <main>
-            <section id="shorcuts">
-                <h1 class="page-title">Listas</h1>
+            <section id="content">
+                <h1 class="page-title">assinatura</h1>
+                <h2 class="page-subtitle">saída</h2>
 
                 <div class="grid">
-                    <a href="#" class="card">
-                        <img src="../../../img/student/home/vai_volta.svg" alt="vai e volta">
-                        <h6>vai e volta</h6>
-                    </a>
-                    
-                    <a href="#" class="card">
-                        <img src="../../../img/student/home/saida.svg" alt="saída">
-                        <h6>saída</h6>
-                    </a>
-                    
-                    <a href="#" class="card">
-                        <img src="../../../img/student/home/pernoite.svg" alt="pernoite">
-                        <h6>pernoite</h6>
-                    </a>
+                    <dl class="card">
+                        <div class="dl-line">
+                            <dt>aluno</dt>
+                            <dd>Henrique Cardoso de Souza</dd>
+                        </div>
+
+                        <div class="dl-line">
+                            <dt>endereço</dt>
+                            <dd>rua pedro nunes - 392</dd>
+                        </div>
+
+                        <div class="dl-line">
+                            <dt>nome do responsável</dt>
+                            <dd>maria lúcia dos santos</dd>
+                        </div>
+
+                        <div class="dl-line">
+                            <dt>telefone</dt>
+                            <dd>(38) 991875243</dd>
+                        </div>
+
+                        <div class="dl-line">
+                            <dt>data de saída</dt>
+                            <dd>12/02/2024</dd>
+                        </div>
+
+                        <div class="dl-line">
+                            <dt>data de chegada</dt>
+                            <dd>14/02/2024</dd>
+                        </div>
+
+                        <div class="dl-line">
+                            <dt>hora de saída</dt>
+                            <dd>08:30</dd>
+                        </div>
+                        
+                        <div class="dl-line">
+                            <dt>hora de chegada</dt>
+                            <dd>12:00</dd>
+                        </div>
+
+                        <div class="dl-line mt-4 justify-right">
+                            <button type="button" class="btn btn-outline-danger" onclick="openModal('finish')">Encerrar assinatura</button>
+                        </div>
+                    </dl>
                 </div>
             </section>
-            
-            <br>
 
-            <section id="about">
-                <h1 class="page-title">Sobre</h1>
+            <section id="edit">
+                <h1 class="page-subtitle">edições realizadas</h1>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ad nesciunt perspiciatis? Eum nulla sequi hic suscipit magni, labore itaque quod quo dolor molestiae atque reprehenderit facere est dicta tempore?</p>
+                <div id="table" class="mt-4">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>destino</th>
+                                <th>data de saída</th>
+                                <th>data de chegada</th>
+                                <th>horário de saída</th>
+                                <th>horário de chegada</th>
+                            </tr>
+                        </thead>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores itaque vero dolores minus, quidem molestias quod excepturi iste, molestiae, distinctio porro autem atque ducimus illo harum ipsum similique suscipit dolorem!</p>
+                        <tbody>
+                            <tr class="table-link">
+                                <td>vai e volta</td>
+                                <td>08/04/2024</td>
+                                <td>08/04/2024</td>
+                                <td>11:00</td>
+                                <td>23:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="modal">
+                <div id="finish-background" class="modal-background" style="display: none" onclick="openModal(this.id.split('-')[0])"></div>
+                <form id="finish" class="modal" style="display: none" method="post" action="?">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Encerrar assinatura</h3>
+                        <button type="button" class="btn btn-close-modal" onclick="openModal('finish')"><div class="close"></div></button>
+                    </div>
+
+                    <hr>
+
+                    <div class="modal-body">
+                        <p class="modal-content">
+                            Deseja realmente encerrar a assinatura?
+                        </p>
+                            
+                        <small>Isso irá antecipar a data e hora de chegada para a data e hora atuais</small>
+
+                        <br><br>
+
+                        <input type="text" id="password" placeholder="Informe sua senha para confirmar">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-danger" type="button" onclick="openModal('finish')">Não</button>
+                        <button class="btn btn-outline-success" id="action" type="submit" value="finish" disabled>Sim</button>
+                    </div>
+                </form>
             </section>
         </main>
 

@@ -14,16 +14,21 @@ input:not([type="checkbox"]) {
     font-size: 15px;
 }
 
-input:focus, input:valid {
+input:focus,
+input:valid,
+.input:focus,
+.input:valid {
     border-color: white;
 }
 
-input[type="date"], input[type="time"] {
+input[type="date"],
+input[type="time"] {
     width: calc(100% - 56px);
     padding-right: 26px;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(100%);
 }
 
@@ -64,19 +69,16 @@ label {
     transition: 0.4s;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-/* Show the checkmark when checked */
-.form-group input[type="checkbox"]:checked ~ .checkmark:after {
+.form-group input[type="checkbox"]:checked~.checkmark:after {
     display: block;
 }
 
-/* Style the checkmark/indicator */
 .form-group .checkmark:after {
     left: 5px;
     top: 2px;
@@ -89,7 +91,8 @@ label {
     transform: rotate(45deg);
 }
 
-input[type="checkbox"]:checked ~ label, input[type="checkbox"]:checked ~ .checkmark {
+input[type="checkbox"]:checked~label,
+input[type="checkbox"]:checked~.checkmark {
     color: white;
     border-color: white;
 }
@@ -100,4 +103,98 @@ input[type="checkbox"]:checked ~ label, input[type="checkbox"]:checked ~ .checkm
     top: 17px;
     width: 16px;
     height: 16px;
+}
+
+.select-container {
+    position: relative;
+    font-family: var(--font-default);
+    color: var(--text-default);
+    text-transform: capitalize;
+}
+
+.select-container select {
+    display: none;
+}
+
+.select-selected {
+    background-color: transparent;
+    border: 1px solid var(--text-default);
+    border-radius: 50px;
+    height: 50px;
+    padding: 0 48px 0 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: .4s;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: calc((50px - 6px) / 2);
+    right: 28px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: var(--text-default) transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent var(--text-default) transparent;
+    top: calc((50px - 6px) / 4 + 6px);
+}
+
+.select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border: none;
+    transition: .4s;
+    overflow-y: auto;
+    max-height: 200px;
+    background-color: var(--text-secondary);
+}
+
+.select-items *:not(.disabled) {
+    cursor: pointer;
+}
+
+.select-items .disabled {
+    color: var(--color-disabled);
+}
+
+.select-items div {
+    height: 30px;
+    min-height: 30px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: .4s;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:not(.disabled):hover,
+.same-as-selected {
+    background-color: var(--background-secondary);
+}
+
+.checkbox-group {
+    justify-self: end;
+    width: auto;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"] {
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
 }

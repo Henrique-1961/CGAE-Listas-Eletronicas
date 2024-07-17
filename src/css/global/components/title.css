@@ -1,13 +1,17 @@
 h1, h2, h3, h4, h5, h6 {
-    color: white;
+    color: var(--text-default);
     font-family: var(--font-title);
     font-weight: 100;
     text-transform: uppercase;
 }
 
 p, span {
-    color: white;
+    color: var(--text-default);
     font-family: var(--font-default);
+}
+
+small {
+    color: var(--text-default);
 }
 
 .text-danger {
@@ -16,11 +20,20 @@ p, span {
 
 .page-title {
     font-size: 35pt;
-    margin: 5px 0;
+    margin: 0;
+    margin-top: 40px;
 }
 
 .page-subtitle {
     font-size: 1.5rem;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-end {
+    text-align: end;
 }
 
 @media (max-width: 1024px) {

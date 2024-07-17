@@ -16,7 +16,7 @@ body {
 }
 
 .width-auto {
-    width: auto;
+    width: auto !important;
 }
 
 .align-right {
@@ -25,7 +25,15 @@ body {
 
 .justify-right {
     display: flex;
-    justify-content: end !important;
+    justify-content: flex-end !important;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
 }
 
 .mt-4 {

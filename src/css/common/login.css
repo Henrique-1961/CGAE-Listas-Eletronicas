@@ -32,11 +32,6 @@ main {
     width: 360px;
 }
 
-.checkbox-group {
-    justify-self: end;
-    width: auto;
-}
-
 @media (max-width: 768px) {
     body {
         min-width: 0;
@@ -48,10 +43,11 @@ main {
     }
 
     .logo {
-        width: 90%;
+        width: 70%;
     }
 
     .form-group:not(.checkbox-group) {
         width: 100%;
+        max-width: 200%;
     }
 }

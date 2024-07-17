@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGAE | Assistente | Aluno</title>
+    <link rel="stylesheet" href="../../../css/global/global.css">
+    <link rel="stylesheet" href="../../../css/student/lists.css">
+    <script src="../../../js/global/navbar.js" defer></script>
+    <script src="../../../js/global/components/checkbox.js" defer></script>
+    <script src="../../../js/global/components/telefone.js" defer></script>
+    <script src="../../../js/global/components/popup.js" defer></script>
+    <script src="../../../js/global/components/select.js" type="module"></script>
+    <script src="../../../js/pages/assistant/newStudent.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="navbar">
+                <li class="nav-logo"><a class="nav-brand" href="#"><img src="../../../img/common/brand.svg" alt="CGAE brand"></a></li>
+                <div class="btn btn-outline-navbar" onclick="openNavbar(this)">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+                <div class="nav-items">
+                    <li>
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+        
+                    <li>
+                        <a class="nav-link" href="#">Alunos</a>
+                    </li>
+        
+                    <li class="nav-link dropdown">
+                        <div class="dropdown-btn">
+                            Assinaturas <img src="../../../img/common/arrow-down.svg" alt="">
+                        </div>
+                        
+                        <div class="dropdown-content size-2">
+                            <a href="#">Ativas</a>
+                            <a href="#">Encerradas</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-link dropdown">
+                        <div class="dropdown-btn">
+                            Perfil <img src="../../../img/common/arrow-down.svg" alt="">
+                        </div>
+                        
+                        <div class="dropdown-content size-2">
+                            <a href="#">Meu perfil</a>
+                            <a href="#" class="text-danger">Sair</a>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+            <div class="nav-items-aux">
+                <li>
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+        
+                <li>
+                    <a class="nav-link" href="#">Alunos</a>
+                </li>
+        
+                <li class="nav-link dropdown">
+                    <div class="dropdown-btn">
+                        Assinaturas <img src="../../../img/common/arrow-down.svg" alt="">
+                    </div>
+                    
+                    <div class="dropdown-content size-2">
+                        <a href="#">Ativas</a>
+                        <a href="#">Encerradas</a>
+                    </div>
+                </li>
+        
+                <li class="nav-link dropdown">
+                    <div class="dropdown-btn">
+                        Perfil <img src="../../../img/common/arrow-down.svg" alt="">
+                    </div>
+                    
+                    <div class="dropdown-content size-2">
+                        <a href="#">Meu perfil</a>
+                        <a href="#" class="text-danger">Sair</a>
+                    </div>
+                </li>
+            </div>
+        </nav>
+
+        <main>
+            <section id="content">
+                <h1 class="page-title">alunos</h1>
+                <h2 class="page-subtitle">novo aluno</h2>
+
+                <div class="popup popup-success opacity-1" id="popup">
+                    <img src="./../../../img/icon/checkmark.svg" alt="icon" width="13px" height="13px">
+                    <span>Aluno cadastrado com sucesso</span>
+                </div>
+
+                <section id="form">
+                    <form action="?" method="post" class="card">
+                        <div class="form-group mb">
+                            <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                            <img src="../../../img/icon/user.svg" alt="user-icon">
+                        </div>
+                        
+                        <div class="form-group mb">
+                            <input type="email" name="email" id="email" placeholder="Email" required>
+                            <img src="../../../img/common/footer/email.svg" alt="user-icon">
+                        </div>
+                        
+                        <div class="form-group mb">
+                            <input type="number" name="refeitorio" id="refeitorio" placeholder="N° Refeitório" required>
+                            <img style="filter: invert()" src="../../../img/icon/food.svg" alt="user-icon">
+                        </div>
+                        
+                        <div class="form-group mb">
+                            <input type="text" name="responsavel" id="responsavel" placeholder="Responsável" required>
+                            <img src="../../../img/icon/user.svg" alt="user-icon">
+                        </div>
+                        
+                        <div class="form-group mb">
+                            <input type="text" name="telefone" id="telefone" placeholder="Telefone do responsável" required>
+                            <img src="../../../img/common/footer/phone.svg" alt="user-icon">
+                        </div>
+                        
+                        <div class="form-group mb">
+                            <input type="text" name="cidade" id="cidade" placeholder="Cidade" required>
+                            <img style="filter: invert()" src="../../../img/icon/location.png" alt="user-icon">
+                        </div>
+                        
+                        <p>Série</p>
+
+                        <div class="form-group mb select-container">
+                            <select name="serie" id="serie">
+                                <option value="1">1°</option>
+                                <option value="2">2°</option>
+                                <option value="3">3°</option>
+                            </select>
+                        </div>
+
+                        <p>Internato</p>
+
+                        <div class="form-group mb select-container">
+                            <select name="internato" id="internato">
+                                <option value="m">masculino</option>
+                                <option value="f">feminino</option>
+                            </select>
+                        </div>
+                        
+                        <p>Quarto</p>
+
+                        <div class="form-group mb select-container">
+                            <select name="quarto" id="quarto">
+                                <option value="">1.1</option>
+                                <option value="">1.2</option>
+                                <option value="">1.3</option>
+                                <option value="">1.4</option>
+                                <option value="">1.5</option>
+                                <option value="">2.1</option>
+                                <option value="">2.2</option>
+                                <option value="">2.3</option>
+                                <option value="">2.4</option>
+                                <option value="">3.1</option>
+                                <option value="">3.2</option>
+                                <option value="">3.3</option>
+                                <option value="">3.4</option>
+                            </select>
+                        </div>
+
+                        <p>Cama</p>
+
+                        <div class="form-group mb select-container">
+                            <select name="cama" id="cama">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                                <option value="">8</option>
+                                <option value="">9</option>
+                                <option value="">10</option>
+                                <option value="">11</option>
+                                <option value="">12</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group checkbox-group mt-1">
+                            <input type="checkbox" name="pernoite" id="pernoite">
+                            <span class="checkmark" onclick="setupCheckbox()"></span>
+                            <label for="pernoite">Permissão de pernoite</label>
+                        </div>
+
+                        <div class="align-right width-auto mt-4">
+                            <button type="submit" class="btn btn-outline-success">Cadastrar</button>
+                        </div>
+
+                        <input type="hidden" name="token" value="valid">
+                    </form>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <img class="footer-logo" src="/src/img/common/footer/logo.svg" alt="if logo">
+        
+            <div class="footer-line"></div>
+        
+            <div class="footer-contacts">
+                <a href="https://instagram.com/cgaelistaseletronicas" class="footer-contact">
+                    <img src="/src/img/common/footer/instagram.svg" alt="instagram">
+                    <span>cgaelistaseletronicas</span>
+                </a>
+                
+                <a href="mailto:cgaelistaseletronicas@gmail.com" class="footer-contact">
+                    <img src="/src/img/common/footer/email.svg" alt="email">
+                    <span>cgaelistaseletronicas@gmail.com</span>
+                </a>
+                
+                <div class="footer-contact">
+                    <img src="/src/img/common/footer/phone.svg" alt="telefone">
+                    <span>(38) 99187-8682</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,9 +1,8 @@
-// We need to keep track of faded in elements so we can apply fade out later in CSS
 document.addEventListener('animationstart', function (e) {
     if (e.animationName === 'fade-in') {
         e.target.classList.add('did-fade-in');
     }
-  });
+});
 
 document.addEventListener('animationend', function (e) {
     if (e.animationName === 'fade-out') {
@@ -15,12 +14,12 @@ window.addEventListener("resize", function() {
     var windowWidth = window.innerWidth;
 
     if (windowWidth > 1100) {
-        if (document.querySelector("div.nav-items-aux").style.display == "block") openNavbar();
+        if (document.querySelector("div.nav-items-aux").style.display == "block") openNavbar(document.querySelector("div.btn-outline-navbar"), true);
     }
 });
 
-function openNavbar(button) {
-    button.classList.toggle("change");
+function openNavbar(button = undefined, fromResize = false) {
+    if (button) button.classList.toggle("change");
 
     const items = document.querySelector("div.nav-items-aux");
     const display = items.style.display == "block" ? "none" : "block";
@@ -31,12 +30,20 @@ function openNavbar(button) {
     }
 
     else {
-        items.style.overflowY = "hidden";
-        items.style.animation = "shrink-to-top 0.2s ease-out";
-
-        setTimeout(() => { 
-            document.querySelector("div.nav-items-aux").style.display = "none";
+        if (fromResize) {
+            items.style.overflowY = "hidden";
+            items.style.display = "none";
             items.style.animation = "grow-from-top 0.2s ease-out";
-        }, 200);
+        }
+
+        else {
+            items.style.overflowY = "hidden";
+            items.style.animation = "shrink-to-top 0.2s ease-out";
+
+            setTimeout(() => { 
+                document.querySelector("div.nav-items-aux").style.display = "none";
+                items.style.animation = "grow-from-top 0.2s ease-out";
+            }, 200);
+        }
     }
 }

@@ -1,0 +1,35 @@
+.filter {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#active-filters {
+    display: flex;
+    overflow-x: auto;
+}
+
+#options {
+    display: flex;
+    justify-content: start;
+    margin: 20px 0;
+}
+
+#options * {
+    margin: 0 20px 0 0;
+}
+
+@media (max-width: 768px) {
+    #options {
+        display: block;
+    }
+
+    #options * {
+        margin: 10px 0 0 0;
+    }
+
+    #options *:not(a) {
+        width: 100%;
+    }
+}
